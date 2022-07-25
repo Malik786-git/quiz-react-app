@@ -1,21 +1,27 @@
-import { createContext, useReducer} from 'react'
+import { createContext, useContext, useReducer} from 'react'
 import {data} from './data'
 import reducer from './reducer';
 
-const myContext = createContext(data);
+const myContext = createContext();
 
 
 const AppProvider = ({children})=> {
    
     const [state, dispatch] = useReducer(reducer, data);
-    const nextQuestion = (action)=> {
-        dispatch('NEXT');
+    // const nextQuestion = ()=> {
+    //     console.log('ggggg');
+    //     dispatch({type: 'NEXT'});
+    // }
+    const selectSubject = (sub)=> {
+        // console.log(sub);
+        dispatch({type: 'SUB', subject: sub});
     }
 
     return (
         <myContext.Provider
            value={{
-                question: state,
+                questions: state,
+                selectSubject,
            }}
         >
             {children}
@@ -23,5 +29,9 @@ const AppProvider = ({children})=> {
     );
 }
 
+const UseContext = ()=>{
+    return useContext(myContext);
+}
 
 export {AppProvider, myContext};
+export default UseContext;

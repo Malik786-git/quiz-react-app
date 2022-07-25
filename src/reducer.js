@@ -1,9 +1,17 @@
-import React from 'react'
-
 const reducer = (state, action) => {
    switch (action.type) {
-    case 'NEXT':
-        return state;
+    case 'SUB':
+        if(action.subject === 'cs') {
+            state = state.cs;
+        }
+        if(action.subject === 'chem') {
+            state =  state.chem;
+        }
+        if(action.subject === 'math') {
+            state = state.math;
+        }
+          return state;
+
     default:
         return state;
    }

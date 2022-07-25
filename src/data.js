@@ -46,8 +46,8 @@ export const data = {
   ],
   math: [
     {
-      question: "MB stand for:",
-      options: ["Terabyte", "Petabyte", "Gegabyte", "Megabyte"],
+      question: "square of x? if x = 4:",
+      options: ["8", "4", "10", "16"],
       answer: 3
     },
     {
